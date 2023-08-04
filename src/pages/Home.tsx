@@ -1,10 +1,14 @@
+import Menu from "../components/MenuItem/MenuFormItem";
 import Form from "../components/Form/Form";
 
 function Home() {
   return (
     <>
-      <h1>Converter Criptomoedas</h1>
-      <Form />
+      <Menu />
+      <div>
+        <h1>Converter Criptomoedas</h1>
+        <Form />
+      </div>
     </>
   );
 }
