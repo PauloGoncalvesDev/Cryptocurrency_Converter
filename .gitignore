@@ -12,7 +12,6 @@ dist
 dist-ssr
 *.local
 yarn.lock
-tsconfig.node.json
 
 # Editor directories and files
 .vscode/*
