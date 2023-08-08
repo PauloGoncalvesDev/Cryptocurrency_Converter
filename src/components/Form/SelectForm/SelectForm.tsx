@@ -46,6 +46,7 @@ function SelectForm({ label, customStyles }: ISelectProp) {
             >
               <img
                 src={coin.image}
+                alt={coin.name}
                 style={{ width: "20px", marginRight: "15px" }}
               ></img>
               {coin.name}

@@ -16,7 +16,6 @@ export async function getCoingeckoCoinList(): Promise<ICoinBase[]> {
 
     return coinList;
   } catch (error) {
-    console.log(error);
     return [];
   }
 }
