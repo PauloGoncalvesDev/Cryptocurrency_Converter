@@ -1,14 +1,25 @@
 import { InputLabel, MenuItem, SelectChangeEvent } from "@mui/material";
 import { Select } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getCoingeckoCoinList } from "../../../services/coingecko";
 import "./selectform.css";
 
 function SelectForm({ label, customStyles }: ISelectProp) {
   const [coin, setCoin] = useState<string>("");
+  const [coinList, setCoinList] = useState<ICoinBase[]>([]);
 
   const handleChange = (event: SelectChangeEvent) => {
     setCoin(event.target.value as string);
   };
+
+  useEffect(() => {
+    async function fetchCoins() {
+      const coinList = await getCoingeckoCoinList();
+      setCoinList(coinList.sort((a, b) => (a.name < b.name ? -1 : 1)));
+    }
+
+    fetchCoins();
+  }, []);
 
   return (
     <>
@@ -26,9 +37,22 @@ function SelectForm({ label, customStyles }: ISelectProp) {
         label={label}
         onChange={handleChange}
       >
-        <MenuItem value={1}>Bitcoin</MenuItem>
-        <MenuItem value={2}>BNB</MenuItem>
-        <MenuItem value={3}>DogeCoin</MenuItem>
+        {coinList.map((coin: ICoinBase) => {
+          return (
+            <MenuItem
+              key={coin.id}
+              value={coin.id}
+              style={{ alignItems: "center" }}
+            >
+              <img
+                src={coin.image}
+                alt={coin.name}
+                style={{ width: "20px", marginRight: "15px" }}
+              ></img>
+              {coin.name}
+            </MenuItem>
+          );
+        })}
       </Select>
     </>
   );
