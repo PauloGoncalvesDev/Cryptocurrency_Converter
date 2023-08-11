@@ -8,7 +8,11 @@ function ConvertCoin() {
     <>
       <Grid item xs={20} md={9}>
         <FormControl fullWidth variant="filled">
-          <SelectForm label="Moeda Conversão" customStyles={customStyles} />
+          <SelectForm
+            label="Moeda Conversão"
+            classNameTypeField="convertCoin"
+            customStyles={customStyles}
+          />
           <Grid container columns={20} style={{ margin: "0.2rem 0" }}>
             <InputForm
               label={customStyles.label}

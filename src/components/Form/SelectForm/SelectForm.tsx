@@ -3,13 +3,16 @@ import { Select } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getCoingeckoCoinList } from "../../../services/coingecko";
 import "./selectform.css";
+import { useAppContext } from "../../Contexts/AppContext/AppContext";
 
-function SelectForm({ label, customStyles }: ISelectProp) {
+function SelectForm({ label, customStyles, classNameTypeField }: ISelectProp) {
   const [coin, setCoin] = useState<string>("");
   const [coinList, setCoinList] = useState<ICoinBase[]>([]);
+  const { setCoinBaseContext, setCoinConversionContext } = useAppContext();
 
   const handleChange = (event: SelectChangeEvent) => {
     setCoin(event.target.value as string);
+    getCoinsByClassName(event.target.value as string);
   };
 
   useEffect(() => {
@@ -20,6 +23,24 @@ function SelectForm({ label, customStyles }: ISelectProp) {
 
     fetchCoins();
   }, []);
+
+  const getCoinsByClassName = (className: string) => {
+    const coinElemento: HTMLCollectionOf<Element> =
+      document.getElementsByClassName(className);
+
+    for (let i = 0; i < coinElemento.length; i++) {
+      const element = coinElemento[i];
+
+      if (element.classList.contains("baseCoin"))
+        setCoinBaseContext(
+          coinList.find((x) => x.id === className) as ICoinBase
+        );
+      else if (element.classList.contains("convertCoin"))
+        setCoinConversionContext(
+          coinList.find((x) => x.id === className) as ICoinBase
+        );
+    }
+  };
 
   return (
     <>
@@ -49,7 +70,9 @@ function SelectForm({ label, customStyles }: ISelectProp) {
                 alt={coin.name}
                 style={{ width: "20px", marginRight: "15px" }}
               ></img>
-              {coin.name}
+              <span className={`${classNameTypeField} ${coin.id}`}>
+                {coin.name}
+              </span>
             </MenuItem>
           );
         })}

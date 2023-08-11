@@ -8,7 +8,11 @@ function BaseCoin() {
     <>
       <Grid item xs={20} md={9}>
         <FormControl fullWidth variant="filled">
-          <SelectForm label="Moeda Base" customStyles={customStyles} />
+          <SelectForm
+            label="Moeda Base"
+            classNameTypeField="baseCoin"
+            customStyles={customStyles}
+          />
           <Grid container columns={20} style={{ margin: "0.2rem 0" }}>
             <InputForm
               label={customStyles.label}
