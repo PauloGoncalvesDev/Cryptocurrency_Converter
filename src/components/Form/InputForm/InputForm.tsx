@@ -7,7 +7,7 @@ function InputForm({
   id,
   labelText,
   style,
-  disabled,
+  value,
 }: ICustomStyles) {
   return (
     <>
@@ -17,6 +17,7 @@ function InputForm({
           label={labelText}
           type="number"
           variant="filled"
+          value={value}
           className="filled-number"
           InputLabelProps={{
             style: label,
@@ -25,7 +26,6 @@ function InputForm({
             style: select,
           }}
           style={style}
-          disabled={disabled}
         />
       </Grid>
     </>

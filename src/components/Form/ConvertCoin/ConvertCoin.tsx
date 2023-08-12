@@ -2,8 +2,11 @@ import { FormControl, Grid } from "@mui/material";
 import SelectForm from "../SelectForm/SelectForm";
 import InputForm from "../InputForm/InputForm";
 import customStyles from "../StyleForm";
+import { useAppContext } from "../../Contexts/AppContext/AppContext";
 
 function ConvertCoin() {
+  const { coinConversionContext } = useAppContext();
+
   return (
     <>
       <Grid item xs={20} md={9}>
@@ -18,8 +21,8 @@ function ConvertCoin() {
               label={customStyles.label}
               select={customStyles.select}
               id="container-cotacao-2"
-              labelText="Cotação"
-              disabled={true}
+              labelText="Cotação (BRL)"
+              value={coinConversionContext.current_price}
             />
             <InputForm
               label={customStyles.label}

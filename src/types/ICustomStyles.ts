@@ -4,5 +4,5 @@ interface ICustomStyles {
   id?: string;
   labelText?: string;
   style?: React.CSSProperties;
-  disabled?: boolean;
+  value?: number;
 }
