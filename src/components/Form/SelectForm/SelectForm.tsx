@@ -25,11 +25,11 @@ function SelectForm({ label, customStyles, classNameTypeField }: ISelectProp) {
   }, []);
 
   const getCoinsByClassName = (className: string) => {
-    const coinElemento: HTMLCollectionOf<Element> =
+    const coinElement: HTMLCollectionOf<Element> =
       document.getElementsByClassName(className);
 
-    for (let i = 0; i < coinElemento.length; i++) {
-      const element = coinElemento[i];
+    for (let i = 0; i < coinElement.length; i++) {
+      const element: Element = coinElement[i];
 
       if (element.classList.contains("baseCoin"))
         setCoinBaseContext(
