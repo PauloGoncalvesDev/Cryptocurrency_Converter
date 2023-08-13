@@ -3,9 +3,25 @@ import SelectForm from "../SelectForm/SelectForm";
 import InputForm from "../InputForm/InputForm";
 import customStyles from "../StyleForm";
 import { useAppContext } from "../../Contexts/AppContext/AppContext";
+import { useEffect, useState } from "react";
 
 function ConvertCoin() {
-  const { coinConversionContext } = useAppContext();
+  const { coinConversionContext, coinBaseContext } = useAppContext();
+  const [coinConversionValue, setCoinConversionValue] = useState<number>(0);
+
+  useEffect(() => {
+    if (coinBaseContext.current_price === 0) {
+      setCoinConversionValue(0);
+    } else {
+      setCoinConversionValue(
+        parseFloat(
+          (
+            coinBaseContext.current_price / coinConversionContext.current_price
+          ).toFixed(6)
+        )
+      );
+    }
+  }, [coinBaseContext.current_price, coinConversionContext.current_price]);
 
   return (
     <>
@@ -30,6 +46,7 @@ function ConvertCoin() {
               id="container-quantidade-2"
               labelText="Quantidade"
               style={{ marginLeft: "0.3rem" }}
+              value={coinConversionValue}
             />
           </Grid>
         </FormControl>
