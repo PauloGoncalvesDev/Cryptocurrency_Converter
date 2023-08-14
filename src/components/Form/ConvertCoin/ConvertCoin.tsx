@@ -3,9 +3,55 @@ import SelectForm from "../SelectForm/SelectForm";
 import InputForm from "../InputForm/InputForm";
 import customStyles from "../StyleForm";
 import { useAppContext } from "../../Contexts/AppContext/AppContext";
+import { useEffect, useState } from "react";
 
 function ConvertCoin() {
-  const { coinConversionContext } = useAppContext();
+  const { coinConversionContext, coinBaseContext } = useAppContext();
+  const [coinConversionValue, setCoinConversionValue] = useState<number>(0);
+  const [baseQuantity, setBaseQuantity] = useState<number>(1);
+
+  useEffect(() => {
+    if (coinBaseContext.current_price === 0 || baseQuantity === 0) {
+      setCoinConversionValue(0);
+    } else {
+      setCoinConversionValue(
+        parseFloat(
+          (
+            baseQuantity *
+            (coinBaseContext.current_price /
+              coinConversionContext.current_price)
+          ).toFixed(6)
+        )
+      );
+    }
+  }, [
+    coinBaseContext.current_price,
+    coinConversionContext.current_price,
+    baseQuantity,
+  ]);
+
+  useEffect(() => {
+    const baseQuantityElement = document.getElementById(
+      "container-quantidade-1"
+    ) as HTMLInputElement;
+
+    const handleBaseQuantityChange = () => {
+      const newValue = parseFloat(baseQuantityElement.value);
+
+      if (!isNaN(newValue)) {
+        setBaseQuantity(newValue);
+      } else setBaseQuantity(0);
+    };
+
+    baseQuantityElement.addEventListener("input", handleBaseQuantityChange);
+
+    return () => {
+      baseQuantityElement.removeEventListener(
+        "input",
+        handleBaseQuantityChange
+      );
+    };
+  }, []);
 
   return (
     <>
@@ -30,6 +76,7 @@ function ConvertCoin() {
               id="container-quantidade-2"
               labelText="Quantidade"
               style={{ marginLeft: "0.3rem" }}
+              value={coinConversionValue}
             />
           </Grid>
         </FormControl>
