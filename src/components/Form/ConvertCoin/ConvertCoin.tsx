@@ -6,7 +6,8 @@ import { useAppContext } from "../../Contexts/AppContext/AppContext";
 import { useEffect, useState } from "react";
 
 function ConvertCoin() {
-  const { coinConversionContext, coinBaseContext } = useAppContext();
+  const { coinConversionContext, coinBaseContext }: IAppContext =
+    useAppContext();
   const [coinConversionValue, setCoinConversionValue] = useState<number>(0);
   const [baseQuantity, setBaseQuantity] = useState<number>(1);
 
