@@ -8,7 +8,6 @@ Acesse: https://github.com/PauloGoncalvesDev/Cryptocurrency_Converter
 
 - [Visão Geral](#visão-geral)
   - [Estado do Projeto](#estado-do-projeto)
-  - [Capturas de Tela](#capturas-de-tela)
 - [Instalação](#instalação)
 - [Uso](#uso)
 - [Recursos](#recursos)
@@ -20,11 +19,6 @@ O Conversor de Criptomoedas é uma ferramenta que permite aos usuários converte
 Este projeto está atualmente na sua primeira versão e pode passar por ajustes e melhorias contínuas. Enquanto a funcionalidade básica de conversão de criptomoedas está implementada, estamos trabalhando para aprimorar a experiência do usuário, adicionar mais recursos e corrigir possíveis problemas que possam surgir.
 
 Agradecemos o seu interesse e encorajamos você a ficar atento a atualizações futuras!
-
-### Capturas de Tela
-
-![Tela Principal](screenshots/tela-principal.png)
-![Conversão](screenshots/conversao.png)
 
 ## Instalação
 
