@@ -1,0 +1,89 @@
+import { FormControl, Grid } from "@mui/material";
+import SelectForm from "../SelectForm/SelectForm";
+import InputForm from "../InputForm/InputForm";
+import customStyles from "../StyleForm";
+import { useAppContext } from "../../Contexts/AppContext/AppContext";
+import { useEffect, useState } from "react";
+
+function ConvertCoin() {
+  const { coinConversionContext, coinBaseContext }: IAppContext =
+    useAppContext();
+  const [coinConversionValue, setCoinConversionValue] = useState<number>(0);
+  const [baseQuantity, setBaseQuantity] = useState<number>(1);
+
+  useEffect(() => {
+    if (coinBaseContext.current_price === 0 || baseQuantity === 0) {
+      setCoinConversionValue(0);
+    } else {
+      setCoinConversionValue(
+        parseFloat(
+          (
+            baseQuantity *
+            (coinBaseContext.current_price /
+              coinConversionContext.current_price)
+          ).toFixed(6)
+        )
+      );
+    }
+  }, [
+    coinBaseContext.current_price,
+    coinConversionContext.current_price,
+    baseQuantity,
+  ]);
+
+  useEffect(() => {
+    const baseQuantityElement = document.getElementById(
+      "container-quantidade-1"
+    ) as HTMLInputElement;
+
+    const handleBaseQuantityChange = () => {
+      const newValue = parseFloat(baseQuantityElement.value);
+
+      if (!isNaN(newValue)) {
+        setBaseQuantity(newValue);
+      } else setBaseQuantity(0);
+    };
+
+    baseQuantityElement.addEventListener("input", handleBaseQuantityChange);
+
+    return () => {
+      baseQuantityElement.removeEventListener(
+        "input",
+        handleBaseQuantityChange
+      );
+    };
+  }, []);
+
+  return (
+    <>
+      <Grid item xs={20} md={9}>
+        <FormControl fullWidth variant="filled">
+          <SelectForm
+            label="Moeda Conversão"
+            classNameTypeField="convertCoin"
+            customStyles={customStyles}
+          />
+          <Grid container columns={20} style={{ margin: "0.2rem 0" }}>
+            <InputForm
+              label={customStyles.label}
+              select={customStyles.select}
+              id="container-cotacao-2"
+              labelText="Cotação (BRL)"
+              value={coinConversionContext.current_price}
+            />
+            <InputForm
+              label={customStyles.label}
+              select={customStyles.select}
+              id="container-quantidade-2"
+              labelText="Quantidade"
+              style={{ marginLeft: "0.3rem" }}
+              value={coinConversionValue}
+            />
+          </Grid>
+        </FormControl>
+      </Grid>
+    </>
+  );
+}
+
+export default ConvertCoin;

@@ -1,0 +1,14 @@
+#demo-simple-select-filled,
+#filled-number {
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+ul {
+  max-height: 300px;
+}
