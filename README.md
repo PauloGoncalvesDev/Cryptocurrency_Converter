@@ -2,7 +2,7 @@
 
 Um conversor simples de criptomoedas que permite aos usuários converter entre diferentes criptomoedas usando dados da API CoinGecko.
 
-Acesse: https://github.com/PauloGoncalvesDev/Cryptocurrency_Converter
+Acesse: https://paulogoncalvesdev.github.io/Cryptocurrency_Converter/
 
 ## Índice
 
