@@ -17,7 +17,12 @@ function Home() {
       <Menu />
       <AppContext>
         <ThemeProvider theme={theme}>
-          <Typography variant="h2" lineHeight="1.1" fontWeight="bold">
+          <Typography
+            variant="h2"
+            lineHeight="1.1"
+            fontWeight="bold"
+            marginBottom="1rem"
+          >
             Converter Criptomoedas
           </Typography>
         </ThemeProvider>
