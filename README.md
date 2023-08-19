@@ -8,6 +8,7 @@ Acesse: https://paulogoncalvesdev.github.io/Cryptocurrency_Converter/
 
 - [Visão Geral](#visão-geral)
   - [Estado do Projeto](#estado-do-projeto)
+- [Built With](#built-with)  
 - [Instalação](#instalação)
 - [Uso](#uso)
 - [Recursos](#recursos)
@@ -19,6 +20,9 @@ O Conversor de Criptomoedas é uma ferramenta que permite aos usuários converte
 Este projeto está atualmente na sua primeira versão e pode passar por ajustes e melhorias contínuas. Enquanto a funcionalidade básica de conversão de criptomoedas está implementada, estamos trabalhando para aprimorar a experiência do usuário, adicionar mais recursos e corrigir possíveis problemas que possam surgir.
 
 Agradecemos o seu interesse e encorajamos você a ficar atento a atualizações futuras!
+
+## Built With
+![TypeScript] ![React] ![HTML5] ![CSS3] ![Vite]
 
 ## Instalação
 
@@ -46,3 +50,11 @@ yarn start
 - Conversão de valores entre diferentes criptomoedas.
 - Uso da API CoinGecko para obter as taxas de câmbio em tempo real.
 - Interface amigável e intuitiva.
+
+
+<!-- Shields build with -->
+[TypeScript]: https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white
+[HTML5]: https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white
+[CSS3]: https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white
+[React]: https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB
+[Vite]: https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white
