@@ -70,13 +70,14 @@ function ConvertCoin() {
               id="container-cotacao-2"
               labelText="Cotação (BRL)"
               value={coinConversionContext.current_price}
+              style={{ width: "100%", borderRight: "2px solid #242424" }}
             />
             <InputForm
               label={customStyles.label}
               select={customStyles.select}
               id="container-quantidade-2"
               labelText="Quantidade"
-              style={{ marginLeft: "0.3rem" }}
+              style={{ width: "100%", borderLeft: "2px solid #242424" }}
               value={coinConversionValue}
             />
           </Grid>
