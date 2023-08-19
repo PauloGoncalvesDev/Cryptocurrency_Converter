@@ -23,13 +23,14 @@ function BaseCoin() {
               id="container-cotacao-1"
               labelText="Cotação (BRL)"
               value={coinBaseContext.current_price}
+              style={{ width: "100%", borderRight: "2px solid #242424" }}
             />
             <InputForm
               label={customStyles.label}
               select={customStyles.select}
               id="container-quantidade-1"
               labelText="Quantidade"
-              style={{ marginLeft: "0.3rem" }}
+              style={{ width: "100%", borderLeft: "2px solid #242424" }}
             />
           </Grid>
         </FormControl>
