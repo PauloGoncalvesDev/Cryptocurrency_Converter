@@ -7,11 +7,13 @@ import {
 import { useEffect, useState } from "react";
 import getLanguage from "../../services/language";
 import "../Languages/languages.css";
+import { useLanguageContext } from "../Contexts/LanguageContext/LanguageContext";
 
 function Languages() {
   const [language, setLanguage] = useState<string>("");
   const [languageList, setLanguageList] = useState<ILanguages[]>([]);
   const [isActiveSelect, setIsActiveSelect] = useState<boolean>(false);
+  const { setLanguageContextDefault } = useLanguageContext();
 
   useEffect(() => {
     const languageList: ILanguages[] = getLanguage();
@@ -20,6 +22,7 @@ function Languages() {
 
   const handleChange = (event: SelectChangeEvent) => {
     setLanguage(event.target.value);
+    setLanguageContextDefault(event.target.value);
     setIsActiveSelect(true);
   };
 

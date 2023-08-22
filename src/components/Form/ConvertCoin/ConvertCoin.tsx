@@ -4,12 +4,14 @@ import InputForm from "../InputForm/InputForm";
 import customStyles from "../StyleForm";
 import { useAppContext } from "../../Contexts/AppContext/AppContext";
 import { useEffect, useState } from "react";
+import { useLanguageContext } from "../../Contexts/LanguageContext/LanguageContext";
 
 function ConvertCoin() {
   const { coinConversionContext, coinBaseContext }: IAppContext =
     useAppContext();
   const [coinConversionValue, setCoinConversionValue] = useState<number>(0);
   const [baseQuantity, setBaseQuantity] = useState<number>(1);
+  const { languageContextDefault } = useLanguageContext();
 
   useEffect(() => {
     if (coinBaseContext.current_price === 0 || baseQuantity === 0) {
@@ -68,7 +70,7 @@ function ConvertCoin() {
               label={customStyles.label}
               select={customStyles.select}
               id="container-cotacao-2"
-              labelText="Cotação (BRL)"
+              labelText={`Cotação (${languageContextDefault})`}
               value={coinConversionContext.current_price}
               style={{ width: "100%", borderRight: "2px solid #242424" }}
             />
