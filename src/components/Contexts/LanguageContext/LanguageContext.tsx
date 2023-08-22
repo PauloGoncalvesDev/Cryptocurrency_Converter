@@ -11,13 +11,11 @@ function createInitialContext(): ILanguagesContext {
   return { languageContextDefault, setLanguageContextDefault };
 }
 
-export function useLanguageContext() {
+export function useLanguageContext(): ILanguagesContext {
   const context = useContext(LanguageGlobalContext);
-
   if (!context) {
-    return "";
+    return createInitialContext();
   }
-
   return context;
 }
 

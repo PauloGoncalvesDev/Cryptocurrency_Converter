@@ -23,7 +23,7 @@ function BaseCoin() {
               label={customStyles.label}
               select={customStyles.select}
               id="container-cotacao-1"
-              labelText={`Cotação (${languageContextDefault})`}
+              labelText={`Cotação (${languageContextDefault.toUpperCase()})`}
               value={coinBaseContext.current_price}
               style={{ width: "100%", borderRight: "2px solid #242424" }}
             />

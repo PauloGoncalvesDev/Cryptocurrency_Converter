@@ -70,7 +70,7 @@ function ConvertCoin() {
               label={customStyles.label}
               select={customStyles.select}
               id="container-cotacao-2"
-              labelText={`Cotação (${languageContextDefault})`}
+              labelText={`Cotação (${languageContextDefault.toUpperCase()})`}
               value={coinConversionContext.current_price}
               style={{ width: "100%", borderRight: "2px solid #242424" }}
             />
