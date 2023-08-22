@@ -2,6 +2,7 @@ import Menu from "../components/MenuItem/MenuFormItem";
 import Form from "../components/Form/Form";
 import { AppContext } from "../components/Contexts/AppContext/AppContext";
 import { Theme, ThemeProvider, Typography, createTheme } from "@mui/material";
+import Languages from "../components/Languages/Languages";
 
 function Home() {
   const theme: Theme = createTheme();
@@ -14,6 +15,7 @@ function Home() {
 
   return (
     <>
+      <Languages />
       <Menu />
       <AppContext>
         <ThemeProvider theme={theme}>
