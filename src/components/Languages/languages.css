@@ -1,0 +1,27 @@
+#text-language {
+  cursor: pointer;
+  position: absolute;
+  right: 50px;
+  top: 6px;
+}
+
+#text-language fieldset {
+  border: 0;
+}
+
+#image-icon {
+  width: 30px;
+}
+
+#text-language svg {
+  display: none;
+}
+
+.select-default {
+  background-image: url("../../imgs/brl.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 30px;
+  padding-right: 50px;
+  padding-top: 4px;
+}

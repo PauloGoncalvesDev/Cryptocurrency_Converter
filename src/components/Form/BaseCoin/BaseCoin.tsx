@@ -3,9 +3,11 @@ import SelectForm from "../SelectForm/SelectForm";
 import InputForm from "../InputForm/InputForm";
 import customStyles from "../StyleForm";
 import { useAppContext } from "../../Contexts/AppContext/AppContext";
+import { useLanguageContext } from "../../Contexts/LanguageContext/LanguageContext";
 
 function BaseCoin() {
   const { coinBaseContext } = useAppContext();
+  const { languageContextDefault } = useLanguageContext();
 
   return (
     <>
@@ -21,7 +23,7 @@ function BaseCoin() {
               label={customStyles.label}
               select={customStyles.select}
               id="container-cotacao-1"
-              labelText="Cotação (BRL)"
+              labelText={`Cotação (${languageContextDefault.toUpperCase()})`}
               value={coinBaseContext.current_price}
               style={{ width: "100%", borderRight: "2px solid #242424" }}
             />
