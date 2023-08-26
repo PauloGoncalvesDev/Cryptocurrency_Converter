@@ -48,7 +48,7 @@ yarn start
 
 ## Recursos
 - Conversão de valores entre diferentes criptomoedas.
-- Uso da API CoinGecko para obter as taxas de câmbio em tempo real.
+- Uso da API CoinGecko (https://www.coingecko.com/pt/api) para obter as taxas de câmbio em tempo real.
 - Interface amigável e intuitiva.
 
 
